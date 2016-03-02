@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Help file.
+/// Attached to Help Camera
+/// </summary>
+
+
+using UnityEngine;
 using System.Collections;
 
 public class HelpFile : MonoBehaviour {

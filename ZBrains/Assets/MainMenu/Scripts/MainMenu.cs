@@ -17,11 +17,9 @@ public class MainMenu : MonoBehaviour {
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .9f, Screen.width * .3f, Screen.height * .1f), "Help")) 
 		{
 			print("Clicked!"); // testing purposes
-			SceneManager.LoadScene("Help File");  // change scene based on name
+			SceneManager.LoadScene("HelpFile");  // change scene based on name
 		}
-
-
-
+			
 	}
 
 		
