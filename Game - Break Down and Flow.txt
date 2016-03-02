@@ -1,0 +1,46 @@
+Game - Break Down - Continuous Work in Progress
+
+1. At Start ->
+   A. Splash Screen : Selectables (high)
+      . Start Game
+      . Highest Score
+      . Instruction / Help
+      . Exit
+   B. Splash Screen : Visual (low)
+      . Background Graphics
+      . Audio
+2. Start Game : Game Play
+   A. Visuals
+      . Environment
+      . Scoring System
+      . Player Token
+      . Objective (pick up object)
+   B. Play 
+      . Timer - Standardized per Level
+      . Tilt Controls
+   C. Gather Brainz
+   D. Barriers
+      . Visuals - Walls, Caltrop, Man Holes
+         : Research Prefabs
+      . Logic 
+         : Wall - impedes (stops movement)
+         : Man Hole - Player looses (end level)
+         : Caltrop - Cause player to loose blood(score) and slow him down(velocity)
+         : etc... for future integration, we may want defense tower to impede player token
+2. Highest Score : Storage of Highest Score
+      . Display
+      . Reset Score (erase current records, start new set)
+2. Highest Score : (score storage , file out?)
+      . Research
+      . Score Keeping (after closure of game)
+2. Instrution / Help
+      . Research Display
+      . Getting game requirements
+         : Levels (need 5 different levels by next sprint weeks)
+         : Player Token
+         : Brains / Objective Tokens
+         : Barrier for impeding the player
+         : Environment size of the actual levels
+2. Exit (button to close out the program)
+
+         
