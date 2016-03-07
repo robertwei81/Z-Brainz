@@ -19,6 +19,12 @@ public class MainMenu : MonoBehaviour {
 			print("Clicked!"); // testing purposes
 			SceneManager.LoadScene("HelpFile");  // change scene based on name
 		}
+		// Create "Start Game" button
+		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .6f, Screen.width * .3f, Screen.height * .1f), "Start Game")) 
+		{
+			// Change scene to "Level1" when this button is clicked.
+			SceneManager.LoadScene("Level1");
+		}
 			
 	}
 
