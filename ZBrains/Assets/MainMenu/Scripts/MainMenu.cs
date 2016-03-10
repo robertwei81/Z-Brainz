@@ -14,9 +14,9 @@ public class MainMenu : MonoBehaviour {
 	void OnGUI(){
 		// display background texture
 		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), backgroundTexture);
-		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .9f, Screen.width * .3f, Screen.height * .1f), "Help")) 
+		// help button
+		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .85f, Screen.width * .3f, Screen.height * .1f), "Help")) 
 		{
-			print("Clicked!"); // testing purposes
 			SceneManager.LoadScene("HelpFile");  // change scene based on name
 		}
 		// Create "Start Game" button
@@ -25,7 +25,14 @@ public class MainMenu : MonoBehaviour {
 			// Change scene to "Level1" when this button is clicked.
 			SceneManager.LoadScene("Level1");
 		}
-			
+	}
+
+	void FixedUpdate()
+	{
+		if (Input.GetKeyDown (KeyCode.Escape)) // on return exit game
+		{
+			Application.Quit ();
+		}
 	}
 
 		

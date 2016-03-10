@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -18,5 +19,9 @@ public class PlayerController : MonoBehaviour {
 		float moveVertical = Input.acceleration.y;
 		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
 		rb2d.AddForce (movement * speed);
+		if (Input.GetKeyDown (KeyCode.Escape)) // on return go to Main Menu
+		{
+			SceneManager.LoadScene("MainMenu");
+		}
 	}
 }
