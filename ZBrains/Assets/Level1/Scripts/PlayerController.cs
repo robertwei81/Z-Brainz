@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour {
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 	}
-	// Double touch screen to pause the game
-	void Update(){
+
+	void FixedUpdate () 
+	{
 		// If screen is tapped more than once in a frame
 		if (Input.touches[0].tapCount == 2) {
 			// Check if game is paused already
@@ -28,10 +29,6 @@ public class PlayerController : MonoBehaviour {
 				Time.timeScale = 1;
 			}
 		}
-	}
-
-	void FixedUpdate () 
-	{
 		float moveHorizontal = Input.acceleration.x;
 		float moveVertical = Input.acceleration.y;
 		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
@@ -40,5 +37,6 @@ public class PlayerController : MonoBehaviour {
 		{
 			SceneManager.LoadScene("MainMenu");
 		}
+
 	}
 }
