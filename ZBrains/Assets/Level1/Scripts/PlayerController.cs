@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	// Double touch screen to pause the game
 	void Update(){
 		// If screen is tapped more than once in a frame
-		if (Input.touchCount > 1) {
+		if (Input.touches[0].tapCount == 2) {
 			// Check if game is paused already
 			if (paused == false) {
 				// set paused flag 
