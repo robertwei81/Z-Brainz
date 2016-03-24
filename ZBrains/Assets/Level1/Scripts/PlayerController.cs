@@ -8,29 +8,16 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	public bool paused = false;
 	public Sprite openedDoor;
+	private int count;
 
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
-	} // end Start
+		count = 0;
+	}
 
 	void FixedUpdate () 
 	{
-		// If screen is tapped more than once in a frame
-		/*if (Input.touches[0].tapCount == 2) {
-			// Check if game is paused already
-			if (paused == false) {
-				// set paused flag 
-				paused = true;
-				// pause game
-				Time.timeScale = 0;
-			} else {
-				// reset paused flag
-				paused = false;
-				// continue game
-				Time.timeScale = 1;
-			}
-		}*/
 		float moveHorizontal = Input.acceleration.x;
 		float moveVertical = Input.acceleration.y;
 		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
@@ -43,11 +30,16 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag ("Door")) 
+		if (other.gameObject.CompareTag ("Door") && count == 6) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("MainMenu");
 		}
-
+		if (other.gameObject.CompareTag ("PickUp")) {
+			other.gameObject.SetActive (false);
+			count = count + 1;
+		}
+			
 	} //end OnTriggerEnter2D
+
 }
