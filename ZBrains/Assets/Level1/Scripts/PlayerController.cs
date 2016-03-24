@@ -16,6 +16,21 @@ public class PlayerController : MonoBehaviour {
 		count = 0;
 	}
 
+	void Update(){
+		// check for pausing here instead of FixedUpdate bec. it doesn't call FixedUpdate after pausing
+		foreach(Touch touch in Input.touches){
+			if (touch.tapCount == 2) 
+			{
+				print ("Double tapped!" + touch.tapCount); //testing purposes 
+				if(paused)
+					Time.timeScale = 0f;
+				else 
+					Time.timeScale = 1f;
+				paused = !paused;
+			}
+		}
+	}
+
 	void FixedUpdate () 
 	{
 		float moveHorizontal = Input.acceleration.x;
