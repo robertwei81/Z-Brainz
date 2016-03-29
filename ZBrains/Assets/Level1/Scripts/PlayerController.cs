@@ -39,17 +39,27 @@ public class PlayerController : MonoBehaviour {
 		rb2d.AddForce (movement * speed);
 		if (Input.GetKeyDown (KeyCode.Escape)) // on return go to Main Menu
 		{
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene("Level2");
 		}
 	} // end FixedUpdate
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag ("Door") && count == 6) 
+		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 2) 
+		{
+			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			//if (SceneManager.GetActiveScene().buildIndex == 2)
+			SceneManager.LoadScene("Level2");
+			//if (SceneManager.GetActiveScene().buildIndex == 3)
+			//SceneManager.LoadScene("MainMenu");
+		}
+
+		if (other.gameObject.CompareTag ("Door") && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("MainMenu");
 		}
+
 		if (other.gameObject.CompareTag ("PickUp")) {
 			other.gameObject.SetActive (false);
 			count = count + 1;
