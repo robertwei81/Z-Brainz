@@ -57,6 +57,12 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			SceneManager.LoadScene("Level3");
+		}
+
+		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
+		{
+			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("MainMenu");
 		}
 
