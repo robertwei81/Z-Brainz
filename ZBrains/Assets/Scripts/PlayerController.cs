@@ -45,13 +45,15 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		if (other.gameObject.CompareTag ("Car")) 
+		{
+			transform.position = new Vector3(-21.68f, 12.85f, 0);
+		}
+
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 2) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
-			//if (SceneManager.GetActiveScene().buildIndex == 2)
 			SceneManager.LoadScene("Level2");
-			//if (SceneManager.GetActiveScene().buildIndex == 3)
-			//SceneManager.LoadScene("MainMenu");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 3) 
