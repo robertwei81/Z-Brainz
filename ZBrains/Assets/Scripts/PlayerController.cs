@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
@@ -9,11 +10,13 @@ public class PlayerController : MonoBehaviour {
 	public bool paused = false;
 	public Sprite openedDoor;
 	private int count;
+	public Text pauseText;
 
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		count = 0;
+		pauseText.text = "";
 	}
 
 	void Update(){
@@ -22,10 +25,13 @@ public class PlayerController : MonoBehaviour {
 			if (touch.tapCount == 2) 
 			{
 				print ("Double tapped!" + touch.tapCount); //testing purposes 
-				if(paused)
+				if (paused) {
 					Time.timeScale = 0f;
-				else 
+					pauseText.text = "PAUSED";
+				} else {
 					Time.timeScale = 1f;
+					pauseText.text = "";
+				}
 				paused = !paused;
 			}
 		}
