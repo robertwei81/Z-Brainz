@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().buildIndex == 4) {
 			starting_count = 10;
 		}
-		countText.text = "Brainzzz Remaining: ";
+		setCountText ();
 	}
 
 	void setCountText(){
