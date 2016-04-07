@@ -24,8 +24,22 @@ public class MainMenu : MonoBehaviour {
 
 		if (Time.time > 2f) {
 			// Create "Start Game" button
-			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .65f, Screen.width * .3f, Screen.height * .1f), "Start Game")) {
+			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .45f, Screen.width * .3f, Screen.height * .1f), "Start - Easy")) {
 				// Change scene to "Level1" when this button is clicked.
+				SceneManager.LoadScene ("Level1");
+			}
+		}
+		if (Time.time > 2f) {
+			// Create "Start Game" button
+			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .55f, Screen.width * .3f, Screen.height * .1f), "Start - So so")) {
+				// Change scene to "Level1" with difficulty factor 2* when this button is clicked.
+				SceneManager.LoadScene ("Level1");
+			}
+		}
+		if (Time.time > 2f) {
+			// Create "Start Game" button
+			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .65f, Screen.width * .3f, Screen.height * .1f), "Start - Hard")) {
+				// Change scene to "Level1" with difficulty factor 1* when this button is clicked.
 				SceneManager.LoadScene ("Level1");
 			}
 		}
