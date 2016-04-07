@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
 	public Text pauseText;
 	public Text countText;
 	private int starting_count;
-	public int difficultyTimeVariable;
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
