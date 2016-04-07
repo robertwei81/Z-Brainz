@@ -11,14 +11,28 @@ public class PlayerController : MonoBehaviour {
 	public Sprite openedDoor;
 	private int count;
 	public Text pauseText;
-
+	public Text countText;
+	private int starting_count;
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		count = 0;
 		pauseText.text = "";
+		if (SceneManager.GetActiveScene ().buildIndex == 2) {
+			starting_count = 6;
+		}
+		if (SceneManager.GetActiveScene ().buildIndex == 3) {
+			starting_count = 10;
+		}
+		if (SceneManager.GetActiveScene ().buildIndex == 4) {
+			starting_count = 10;
+		}
+		countText.text = "Brainzzz Remaining: ";
 	}
 
+	void setCountText(){
+		countText.text = "Brainzzz Remaining: " + (starting_count - count).ToString();
+	}
 	void Update(){
 		// check for pausing here instead of FixedUpdate bec. it doesn't call FixedUpdate after pausing
 		foreach(Touch touch in Input.touches){
