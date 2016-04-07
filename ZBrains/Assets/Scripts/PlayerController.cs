@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("PickUp")) {
 			other.gameObject.SetActive (false);
 			count = count + 1;
+			setCountText ();
 		}
 			
 	} //end OnTriggerEnter2D
