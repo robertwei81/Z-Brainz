@@ -21,7 +21,7 @@ public class HelpFile : MonoBehaviour {
 
 	private Texture[] HelpSlides = new Texture[4];
 
-	public enum SwipeDirection{Up,Down,Right,Left}
+	public enum SwipeDirection{Up,Down,Right,Left,Stayput}
 
 	//public static event Action<SwipeDirection> Swipe;
 	public static SwipeDirection Swipe;
@@ -54,16 +54,20 @@ public class HelpFile : MonoBehaviour {
 						Vector2 direction = Input.GetTouch (0).position - LastPosition;
 						if (Mathf.Abs (direction.x) > Mathf.Abs (direction.y)) {
 							if (direction.x > 0) {
+								direction.Set (0, 0); //reset value to zero so that it stops sliding
 								Swipe = SwipeDirection.Right;
 								SlideRight ();
 							} else {
+								direction.Set (0, 0); //reset value to zero so that it stops sliding
 								Swipe = SwipeDirection.Left;
 								SlideLeft ();
 							}
 						} else {
 							if (direction.y > 0) {
+								direction.Set (0, 0); //reset value to zero so that it stops sliding
 								Swipe = SwipeDirection.Up;
 							} else {
+								direction.Set (0, 0); //reset value to zero so that it stops sliding
 								Swipe = SwipeDirection.Down;
 							}
 
@@ -81,8 +85,7 @@ public class HelpFile : MonoBehaviour {
 
 
 	void FixedUpdate(){
-		if (Input.GetKeyDown (KeyCode.Escape)) // on return go to Main Menu
-		{
+		if (Input.GetKeyDown (KeyCode.Escape)) { // on return go to Main Menu
 			SceneManager.LoadScene("MainMenu");
 		}
 	}
