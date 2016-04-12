@@ -13,7 +13,11 @@ public class PlayerController : MonoBehaviour {
 	public Text pauseText;
 	public Text countText;
 	private int starting_count;
-	public int difficultyTimeVar;
+	static public int difficultyTimeVar=3;// default factor is 3*
+	//------------timer variables ----------------
+	public System.Timers.Timer LeTimer;
+	private int BoomDown = difficultyTimeVar*100;
+	//--------------------------------------------
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
@@ -29,6 +33,13 @@ public class PlayerController : MonoBehaviour {
 			starting_count = 10;
 		}
 		setCountText ();
+		//--------------------------------------------------------------------------
+		//Initialize timer with 1 second intervals
+		LeTimer = new System.Timers.Timer (1000);
+		LeTimer.Elapsed +=
+			//This function decreases BoomDown every second
+			(object sender, System.Timers.ElapsedEventArgs e) => BoomDown--;
+		//--------------------------------------------------------------------------
 	}
 
 	void setCountText(){
@@ -50,6 +61,18 @@ public class PlayerController : MonoBehaviour {
 				paused = !paused;
 			}
 		}
+		//-------------------------------------
+
+		if (BoomDown <= 0) {
+			//set text for timer here
+			//then pause the game; 
+			//2 options here, tap screen to restart
+			//tap screen to main menu ; bob favors restart the level
+			Debug.Log ("Boom!");//this is just an example
+		} else {
+			//set text for timer here
+		}
+		//-------------------------------------
 	}
 
 	void FixedUpdate () 
