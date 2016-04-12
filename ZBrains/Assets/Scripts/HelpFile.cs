@@ -42,6 +42,7 @@ public class HelpFile : MonoBehaviour {
 	}
 
 	void Update(){
+		int duration = 5;
 		if (Input.touchCount==0) 
 			return;
 		if (Input.GetTouch (0).deltaPosition.sqrMagnitude != 0) {
@@ -53,7 +54,7 @@ public class HelpFile : MonoBehaviour {
 					if (Swipe != null) {
 						Vector2 direction = Input.GetTouch (0).position - LastPosition;
 						if (Mathf.Abs (direction.x) > Mathf.Abs (direction.y)) {
-							if (direction.x > 0) {
+							if (direction.x > duration) {
 								direction.Set (0, 0); //reset value to zero so that it stops sliding
 								Swipe = SwipeDirection.Right;
 								SlideRight ();
@@ -63,7 +64,7 @@ public class HelpFile : MonoBehaviour {
 								SlideLeft ();
 							}
 						} else {
-							if (direction.y > 0) {
+							if (direction.y > duration) {
 								direction.Set (0, 0); //reset value to zero so that it stops sliding
 								Swipe = SwipeDirection.Up;
 							} else {
