@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public Text countText;
 	private int starting_count;
 	static public int difficultyTimeVar=3;// default factor is 3*
+	private bool isPaused;
 	//------------timer variables ----------------
 	public System.Timers.Timer LeTimer;
 	private int BoomDown = difficultyTimeVar*100;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
 			starting_count = 10;
 		}
 		setCountText ();
+		isPaused = false;
 		//--------------------------------------------------------------------------
 		//Initialize timer with 1 second intervals
 		LeTimer = new System.Timers.Timer (1000);
@@ -46,21 +48,7 @@ public class PlayerController : MonoBehaviour {
 		countText.text = "Brainzzz Remaining: " + (starting_count - count).ToString();
 	}
 	void Update(){
-		// check for pausing here instead of FixedUpdate bec. it doesn't call FixedUpdate after pausing
-		foreach(Touch touch in Input.touches){
-			if (touch.tapCount == 2) 
-			{
-				print ("Double tapped!" + touch.tapCount); //testing purposes 
-				if (paused) {
-					Time.timeScale = 0f;
-					pauseText.text = "PAUSED";
-				} else {
-					Time.timeScale = 1f;
-					pauseText.text = "";
-				}
-				paused = !paused;
-			}
-		}
+
 		//-------------------------------------
 
 		if (BoomDown <= 0) {
@@ -75,6 +63,28 @@ public class PlayerController : MonoBehaviour {
 		//-------------------------------------
 	}
 
+
+	void OnGUI(){
+		// show pause button when isPaused is false
+		if (!isPaused) {
+			if (GUI.Button (new Rect (Screen.width * .87f, Screen.height * .01f, Screen.width * .1f, Screen.height * .1f), "||")) {
+				isPaused = true;
+				Time.timeScale = 0f;
+				pauseText.text = "PAUSED";
+			}
+		}
+
+		// show start button when isPaused is true
+		else {
+			if (GUI.Button (new Rect (Screen.width * .87f, Screen.height * .01f, Screen.width * .1f, Screen.height * .1f), "|>")) {
+				isPaused = false;
+				Time.timeScale = 1f;
+				pauseText.text = "";
+			}
+		}
+	}
+
+
 	void FixedUpdate () 
 	{
 		float moveHorizontal = Input.acceleration.x;
@@ -83,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 		rb2d.AddForce (movement * speed);
 		if (Input.GetKeyDown (KeyCode.Escape)) // on return go to Main Menu
 		{
-			SceneManager.LoadScene("Level2");
+			SceneManager.LoadScene("MainMenu");
 		}
 	} // end FixedUpdate
 
