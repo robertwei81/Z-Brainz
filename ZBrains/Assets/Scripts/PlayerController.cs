@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 	private int starting_count;
 	static public int difficultyTimeVar=3;// default factor is 3*
 	private bool isPaused;
+	public Vector3 pointRestart;
 	//------------timer variables ----------------
 	public System.Timers.Timer LeTimer;
 	private int BoomDown = difficultyTimeVar*100;
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour {
 			starting_count = 10;
 		}
 		if (SceneManager.GetActiveScene ().buildIndex == 4) {
+			starting_count = 10;
+		}
+		if (SceneManager.GetActiveScene ().buildIndex == 5) {
 			starting_count = 10;
 		}
 		setCountText ();
@@ -76,7 +80,7 @@ public class PlayerController : MonoBehaviour {
 
 		// show start button when isPaused is true
 		else {
-			if (GUI.Button (new Rect (Screen.width * .87f, Screen.height * .01f, Screen.width * .1f, Screen.height * .1f), "|>")) {
+			if (GUI.Button (new Rect (Screen.width * .87f, Screen.height * .01f, Screen.width * .1f, Screen.height * .1f), "►")) {
 				isPaused = false;
 				Time.timeScale = 1f;
 				pauseText.text = "";
@@ -101,7 +105,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("Car")) 
 		{
-			transform.position = new Vector3(-21.68f, 12.85f, 0);
+			transform.position = pointRestart;//new Vector3(-21.68f, 12.85f, 0);
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 2) 
@@ -117,6 +121,11 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
+		{
+			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			SceneManager.LoadScene("Level4");
+		}
+		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("MainMenu");
