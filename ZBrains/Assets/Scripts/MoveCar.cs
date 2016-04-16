@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MoveCar : MonoBehaviour {
 	public Vector3 pointB; // enter on Unity
@@ -17,6 +18,9 @@ public class MoveCar : MonoBehaviour {
 	{
 		var i= 0.0f;
 		var rate= 1.0f/time;
+		if (SceneManager.GetActiveScene ().buildIndex == 6) {
+			rate= 2.0f/time;
+		}
 		while (i < 1.0f) {
 			i += Time.deltaTime * rate;
 			thisTransform.position = Vector3.Lerp(startPos, endPos, i);

@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().buildIndex == 5) {
 			starting_count = 10;
 		}
+		if (SceneManager.GetActiveScene ().buildIndex == 6) {
+			starting_count = 10;
+		}
 		setCountText ();
 		isPaused = false;
 		//--------------------------------------------------------------------------
@@ -126,6 +129,11 @@ public class PlayerController : MonoBehaviour {
 			SceneManager.LoadScene("Level4");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
+		{
+			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			SceneManager.LoadScene("Level5");
+		}
+		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 6) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("MainMenu");
