@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	public float speed;
 	public bool paused = false;
-	public Sprite openedDoor;
+	public Sprite openedDoor, bloodPool;
 	private int count;
 	public Text pauseText;
 	public Text countText;
@@ -146,9 +146,14 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (other.gameObject.CompareTag ("PickUp")) {
-			other.gameObject.SetActive (false);
-			count = count + 1;
-			setCountText ();
+			//other.gameObject.SetActive (false);
+			if (other.gameObject.GetComponent<Image> ().sprite = bloodPool) {
+				// do nothing
+			} else {
+				other.gameObject.GetComponent<Image>().sprite = bloodPool;
+				count = count + 1;
+				setCountText ();
+			}
 		}
 			
 	} //end OnTriggerEnter2D
