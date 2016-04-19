@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	private int count;
 	public Text pauseText;
 	public Text countText;
+	public Text timeText;
 	private int starting_count;
 	static public int difficultyTimeVar=3;// default factor is 3*
 	private bool isPaused;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().buildIndex == 6) {
 			starting_count = 10;
 		}
+		setTimeText ();
 		setCountText ();
 		isPaused = false;
 		//--------------------------------------------------------------------------
@@ -52,13 +54,17 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void setCountText(){
-		countText.text = "Brainzzz Remaining: " + (starting_count - count).ToString();
+		countText.text = "Brains Left: " + (starting_count - count).ToString();
+	}
+	void setTimeText(){
+		timeText.text = "Time: " + (BoomDown).ToString ();
 	}
 	void Update(){
 
 		//-------------------------------------
-
+		setTimeText();
 		if (BoomDown <= 0) {
+			
 			//set text for timer here
 			//then pause the game; 
 			//2 options here, tap screen to restart
