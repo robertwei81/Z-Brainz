@@ -147,13 +147,9 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.CompareTag ("PickUp")) {
 			//other.gameObject.SetActive (false);
-			if (other.gameObject.GetComponent<Image> ().sprite = bloodPool) {
-				// do nothing
-			} else {
-				other.gameObject.GetComponent<Image>().sprite = bloodPool;
-				count = count + 1;
-				setCountText ();
-			}
+			other.gameObject.GetComponent<Image>().sprite = bloodPool;
+			count = count + 1;
+			setCountText ();
 		}
 			
 	} //end OnTriggerEnter2D
