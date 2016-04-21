@@ -160,6 +160,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("PickUp")) {
 			//other.gameObject.SetActive (false);
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = bloodPool;
+			other.gameObject.tag = "Blood";
 			count = count + 1;
 			setCountText ();
 		}
