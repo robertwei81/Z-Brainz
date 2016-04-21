@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour {
 
 	public Texture splashScreenBackground;
 	public Texture backgroundTexture; // public so you can drag background image on unity
-
+	public Game current = Game.current;
 	void OnGUI(){
 		// display background texture
 		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), splashScreenBackground);
@@ -20,8 +20,7 @@ public class MainMenu : MonoBehaviour {
 		{
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), backgroundTexture);
 		}
-
-
+			
 		if (Time.time > 2f) {
 			// Create "Start Game" button
 			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .35f, Screen.width * .3f, Screen.height * .1f), "Start - Easy")) {
@@ -48,7 +47,7 @@ public class MainMenu : MonoBehaviour {
 			// Create "Cleared Levels" button
 			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .65f, Screen.width * .3f, Screen.height * .1f), "Cleared Levels")) {
 				// Display new scene showing levels cleared when clicked
-				//SceneManager.LoadScene ("Level1"); Will be updated later
+				SceneManager.LoadScene ("ClearedLevels"); 
 			}
 		}
 

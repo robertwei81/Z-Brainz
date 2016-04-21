@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraAspectRatioController.cs" />
+     <Compile Include="Assets\Scripts\ClearedLevels.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\HelpFile.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />

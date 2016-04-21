@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	public Text pauseText;
 	public Text countText;
 	public Text timeText;
+	public Game current = Game.current;
 	private int starting_count;
 	static public int difficultyTimeVar=3;// default factor is 3*
 	private bool isPaused;
@@ -27,11 +28,8 @@ public class PlayerController : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D> ();
 		count = 0;
 		pauseText.text = "";
-		if (SceneManager.GetActiveScene ().buildIndex == 2) {
-			starting_count = 6;
-		}
 		if (SceneManager.GetActiveScene ().buildIndex == 3) {
-			starting_count = 10;
+			starting_count = 6;
 		}
 		if (SceneManager.GetActiveScene ().buildIndex == 4) {
 			starting_count = 10;
@@ -40,6 +38,9 @@ public class PlayerController : MonoBehaviour {
 			starting_count = 10;
 		}
 		if (SceneManager.GetActiveScene ().buildIndex == 6) {
+			starting_count = 10;
+		}
+		if (SceneManager.GetActiveScene ().buildIndex == 7) {
 			starting_count = 10;
 		}
 		setTimeText ();
@@ -121,28 +122,38 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 2) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			current.levelOne = true;
+			SaveLoad.Save ();
 			SceneManager.LoadScene("Level2");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			current.levelTwo = true;
+			SaveLoad.Save ();
 			SceneManager.LoadScene("Level3");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			current.levelThree = true;
+			SaveLoad.Save ();
 			SceneManager.LoadScene("Level4");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			current.levelFour = true;
+			SaveLoad.Save ();
 			SceneManager.LoadScene("Level5");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 6) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
+			current.levelFive = true;
+			SaveLoad.Save ();
 			SceneManager.LoadScene("MainMenu");
 		}
 

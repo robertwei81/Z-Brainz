@@ -75,6 +75,7 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
 'Assets/Scripts/CameraAspectRatioController.cs'
+'Assets/Scripts/ClearedLevels.cs'
 'Assets/Scripts/Game.cs'
 'Assets/Scripts/HelpFile.cs'
 'Assets/Scripts/MainMenu.cs'
