@@ -122,38 +122,28 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
-			current.levelOne = true;
-			SaveLoad.Save ();
 			SceneManager.LoadScene("Level2");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
-			current.levelTwo = true;
-			SaveLoad.Save ();
 			SceneManager.LoadScene("Level3");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
-			current.levelThree = true;
-			SaveLoad.Save ();
 			SceneManager.LoadScene("Level4");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 6) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
-			current.levelFour = true;
-			SaveLoad.Save ();
 			SceneManager.LoadScene("Level5");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 7) 
 		{
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
-			current.levelFive = true;
-			SaveLoad.Save ();
 			SceneManager.LoadScene("MainMenu");
 		}
 
