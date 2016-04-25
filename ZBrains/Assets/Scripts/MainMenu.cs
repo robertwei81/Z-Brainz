@@ -26,6 +26,8 @@ public class MainMenu : MonoBehaviour {
 		if (Time.time > 2f) {
 			// Create "Start Game" button
 			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .35f, Screen.width * .3f, Screen.height * .1f), "Start - Easy")) {
+				//Update Static Variable for timer
+				PlayerController.difficultyTimeVar = 5;
 				// Change scene to "Level1" when this button is clicked.
 				SceneManager.LoadScene ("Level1");
 			}
@@ -33,6 +35,8 @@ public class MainMenu : MonoBehaviour {
 		if (Time.time > 2f) {
 			// Create "Start Game" button
 			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .45f, Screen.width * .3f, Screen.height * .1f), "Start - So so")) {
+				//Update Static Variable for timer
+				PlayerController.difficultyTimeVar = 3;
 				// Change scene to "Level1" with difficulty factor 2* when this button is clicked.
 				SceneManager.LoadScene ("Level1");
 			}
@@ -40,6 +44,8 @@ public class MainMenu : MonoBehaviour {
 		if (Time.time > 2f) {
 			// Create "Start Game" button
 			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .55f, Screen.width * .3f, Screen.height * .1f), "Start - Hard")) {
+				//Update Static Variable for timer
+				PlayerController.difficultyTimeVar = 1;
 				// Change scene to "Level1" with difficulty factor 1* when this button is clicked.
 				SceneManager.LoadScene ("Level1");
 			}

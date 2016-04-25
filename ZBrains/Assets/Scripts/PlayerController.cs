@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 	public Vector3 pointRestart;
 	//------------timer variables ----------------
 	public System.Timers.Timer LeTimer;
-	private int BoomDown = difficultyTimeVar*100;
+	private int BoomDown = difficultyTimeVar*60;
 	//--------------------------------------------
 	void Start()
 	{
@@ -62,7 +62,9 @@ public class PlayerController : MonoBehaviour {
 		timeText.text = "Time: " + (BoomDown).ToString ();
 	}
 	void Update(){
-
+		if (Time.time > 1f) {
+			BoomDown = BoomDown - 1;
+		}
 		//-------------------------------------
 		setTimeText();
 		if (BoomDown <= 0) {
