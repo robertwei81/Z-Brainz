@@ -15,12 +15,12 @@ public class PlayerController : MonoBehaviour {
 	public Text timeText;
 	public Game current = Game.current;
 	private int starting_count;
-	static public int difficultyTimeVar=3;// default factor is 3*
+	static public int difficultyTimeVar=5;// default factor is 3*
 	private bool isPaused;
 	public Vector3 pointRestart;
 	//------------timer variables ----------------
-	public System.Timers.Timer LeTimer;
-	private int BoomDown = difficultyTimeVar*60;
+	private float timeLeft = difficultyTimeVar*60;
+	static public bool PlayGame = true;
 	//--------------------------------------------
 	void Start()
 	{
@@ -46,40 +46,26 @@ public class PlayerController : MonoBehaviour {
 		setTimeText ();
 		setCountText ();
 		isPaused = false;
-		//--------------------------------------------------------------------------
-		//Initialize timer with 1 second intervals
-		LeTimer = new System.Timers.Timer (1000);
-		LeTimer.Elapsed +=
-			//This function decreases BoomDown every second
-			(object sender, System.Timers.ElapsedEventArgs e) => BoomDown--;
-		//--------------------------------------------------------------------------
 	}
 
 	void setCountText(){
 		countText.text = "Brains Left: " + (starting_count - count).ToString();
 	}
 	void setTimeText(){
-		timeText.text = "Time: " + (BoomDown).ToString ();
+		timeText.text = "Time: " + timeLeft.ToString("F0");
 	}
 	void Update(){
-		if (Time.time > 1f) {
-			BoomDown = BoomDown - 1;
-		}
-		//-------------------------------------
 		setTimeText();
-		if (BoomDown <= 0) {
-			
-			//set text for timer here
-			//then pause the game; 
-			//2 options here, tap screen to restart
-			//tap screen to main menu ; bob favors restart the level
-			Debug.Log ("Boom!");//this is just an example
-		} else {
-			//set text for timer here
-		}
-		//-------------------------------------
+		if (timeLeft < 0)
+			GameOver();
+		else
+			timeLeft -= Time.deltaTime;
 	}
-
+	void GameOver(){
+		//todo: need to pause and display game over
+		//todo: need to set a if tap then if (paused and time ==0) return to main menu
+		PlayGame = false;
+	}
 
 	void OnGUI(){
 		// show pause button when isPaused is false
