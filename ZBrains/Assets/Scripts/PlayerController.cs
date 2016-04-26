@@ -46,7 +46,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		setTimeText ();
 		setCountText ();
-		isPaused = false;
+		isPaused = true;
+		Time.timeScale = 0f;
+		pauseText.text = "PAUSED";
 	}
 
 	void setCountText(){
