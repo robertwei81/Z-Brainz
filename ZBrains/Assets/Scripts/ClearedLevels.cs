@@ -18,58 +18,62 @@ public class ClearedLevels : MonoBehaviour {
 		lvl4 = current.levelFour;
 		lvl5 = current.levelFive;
 		// Set button strings
+		button1 = "Play level 1.";
 		if (lvl1 == true) {
-			button1 = "Level 1 - Cleared";
+			button2 = "Play level 2.";
 		} else {
-			button1 = "Level 1 - Not Cleared";
+			button2 = "Level 1 is not cleared.";
 		}
 		if (lvl2 == true) {
-			button2 = "Level 2 - Cleared";
+			button3 = "Play level 3.";
 		} else {
-			button2 = "Level 2 - Not Cleared";
+			button3 = "Level 2 is not cleared.";
 		}
 		if (lvl3 == true) {
-			button3 = "Level 3 - Cleared";
+			button4 = "Play level 4.";
 		} else {
-			button3 = "Level 3 - Not Cleared";
+			button4 = "Level 3 is not cleared.";
 		}
 		if (lvl4 == true) {
-			button4 = "Level 4 - Cleared";
+			button5 = "Play level 5.";
 		} else {
-			button4 = "Level 4 - Not Cleared";
-		}
-		if (lvl5 == true) {
-			button5 = "Level 5 - Cleared";
-		} else {
-			button5 = "Level 5 - Not Cleared";
+			button5 = "Level 4 is not cleared.";
 		}
 		// display background texture
 		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), background);
 
 		// Create Level One cleared button
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .35f, Screen.width * .3f, Screen.height * .1f), button1)) {
-			// Change scene to "Level1" when this button is clicked.
-			//SceneManager.LoadScene ("Level 1");
+			// Start level 1 when clicked.
+			SceneManager.LoadScene("Level1");
 		}
 		// Create level two cleared button
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .45f, Screen.width * .3f, Screen.height * .1f), button2)) {
-			// Change scene to "Level1" when this button is clicked.
-			//SceneManager.LoadScene ("Level 1");
+			// Start level 2 when clicked if level 1 is cleared.
+			if (lvl1 = true) {
+				SceneManager.LoadScene ("Level2");
+			}
 		}
 		// Create level three cleared button
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .55f, Screen.width * .3f, Screen.height * .1f), button3)) {
-			// Change scene to "Level1" when this button is clicked.
-			//SceneManager.LoadScene ("Level 1");
+			// Start level 3 when clicked if level 2 is cleared.
+			if (lvl2 == true) {
+				SceneManager.LoadScene("Level3");
+			}
 		}
 		// Create level four cleared button
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .65f, Screen.width * .3f, Screen.height * .1f), button4)) {
-			// Change scene to "Level1" when this button is clicked.
-			//SceneManager.LoadScene ("Level 1");
+			// Start level 4 when clicked if level 3 is cleared.
+			if (lvl3 == true) {
+				SceneManager.LoadScene ("Level4");
+			}
 		}
 		// Create level five cleared button
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .75f, Screen.width * .3f, Screen.height * .1f), button5)) {
-			// Change scene to "Level1" when this button is clicked.
-			//SceneManager.LoadScene ("Level 1");
+			// Start level 5 when clicked if level 4 is cleared.
+			if (lvl4 == true) {
+				SceneManager.LoadScene ("Level5");
+			}
 		}
 		// Create reset cleared levels button
 		if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .85f, Screen.width * .3f, Screen.height * .1f), "Reset Cleared Levels")) {
