@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		
 		rb2d = GetComponent<Rigidbody2D> ();
+		rb2d.freezeRotation = true;
 		count = 0;
 		pauseText.text = "";
 		if (SceneManager.GetActiveScene ().buildIndex == 3) {
