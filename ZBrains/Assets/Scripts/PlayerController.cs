@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour {
 
 	void OnGUI(){
 		// show pause button when isPaused is false
+		GUI.backgroundColor = Color.black;
+		GUI.contentColor = Color.white;
 		if (!isPaused) {
 			if (GUI.Button (new Rect (Screen.width * .87f, Screen.height * .01f, Screen.width * .1f, Screen.height * .1f), "||")) {
 				isPaused = true;
@@ -143,6 +145,7 @@ public class PlayerController : MonoBehaviour {
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = bloodPool;
 			other.gameObject.tag = "Blood";
 			other.gameObject.GetComponent<SpriteRenderer> ().sortingLayerName = "Blood";
+			other.gameObject.transform.localScale = new Vector2 (.4f, .4f);
 			count = count + 1;
 			setCountText ();
 		}
