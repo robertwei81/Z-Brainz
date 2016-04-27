@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour {
 			other.gameObject.GetComponent<SpriteRenderer> ().sprite = bloodPool;
 			other.gameObject.tag = "Blood";
 			other.gameObject.GetComponent<SpriteRenderer> ().sortingLayerName = "Blood";
-			other.gameObject.transform.localScale = new Vector2 (.4f, .4f);
+			other.gameObject.transform.localScale = new Vector2 (1f, 1f);
 			count = count + 1;
 			setCountText ();
 		}
