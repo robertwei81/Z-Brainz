@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	public float speed;
 	public bool paused = false;
-	public Sprite openedDoor, bloodPool;
-	private int count;
+	public Sprite bloodPool;
+	static public int count;
 	public Text pauseText;
 	public Text countText;
 	public Text timeText;
@@ -114,29 +114,24 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
-			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("Level2");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
 		{
-			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("Level3");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
 		{
-			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("Level4");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 6) 
 		{
-			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("Level5");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 7) 
 		{
-			other.gameObject.GetComponent<SpriteRenderer> ().sprite = openedDoor;
 			SceneManager.LoadScene("MainMenu");
 		}
 
