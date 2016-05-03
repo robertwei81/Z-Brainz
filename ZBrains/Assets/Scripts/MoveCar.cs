@@ -9,8 +9,8 @@ public class MoveCar : MonoBehaviour {
 	{
 		var pointA = transform.position; // starting position
 		while (true) {
-			yield return StartCoroutine(MoveObject(transform, pointA, pointB, 3.0f)); // move from point A to point B
-			yield return StartCoroutine(MoveObject(transform, pointB, pointA, 3.0f)); // move back to point A
+			yield return StartCoroutine(MoveObject(transform, pointA, pointB, 7.0f)); // move from point A to point B
+			yield return StartCoroutine(MoveObject(transform, pointB, pointA, 7.0f)); // move back to point A
 		}
 	}
 
@@ -18,9 +18,6 @@ public class MoveCar : MonoBehaviour {
 	{
 		var i= 0.0f;
 		var rate= 1.0f/time;
-		if (SceneManager.GetActiveScene ().buildIndex == 6) {
-			rate= 1.0f/time;
-		}
 		while (i < 1.0f) {
 			i += Time.deltaTime * rate;
 			thisTransform.position = Vector3.Lerp(startPos, endPos, i);
