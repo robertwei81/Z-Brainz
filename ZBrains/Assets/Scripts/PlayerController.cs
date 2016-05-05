@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour {
 	public Text pauseText;
 	public Text countText;
 	public Text timeText;
-	public static Game savedGame = new Game();
 	private int starting_count;
 	static public int difficultyTimeVar=5;// default factor is 3*
 	private bool isPaused;
@@ -114,29 +113,29 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
-			savedGame.levelOne = true;
+			Game.current.levelOne = true;
 			SceneManager.LoadScene("Level2");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
 		{
-			savedGame.levelTwo = true;
+			Game.current.levelTwo = true;
 			SceneManager.LoadScene("Level3");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
 		{
-			savedGame.levelThree = true;
+			Game.current.levelThree = true;
 			SceneManager.LoadScene("Level4");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 6) 
 		{
-			savedGame.levelFour = true;
+			Game.current.levelFour = true;
 			SceneManager.LoadScene("Level5");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 7) 
 		{
-			savedGame.levelFive = true;
+			Game.current.levelFive = true;
 			SceneManager.LoadScene("MainMenu");
 		}
 
