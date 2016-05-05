@@ -2,7 +2,7 @@
 using System.Collections;
 
 [System.Serializable]
-public class Game {
+public class Game : MonoBehaviour{
 
 	public static Game current;
 	public bool levelOne, levelTwo, levelThree, levelFour, levelFive;
