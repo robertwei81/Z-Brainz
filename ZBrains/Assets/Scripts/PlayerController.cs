@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public bool paused = false;
 	public Sprite bloodPool;
 	static public int count;
+	public Game currentGame = Game.current;
 	public Text pauseText;
 	public Text countText;
 	public Text timeText;
@@ -113,29 +114,29 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
-			Game.current.levelOne = true;
+			currentGame.levelOne = true;
 			SceneManager.LoadScene("Level2");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
 		{
-			Game.current.levelTwo = true;
+			currentGame.levelTwo = true;
 			SceneManager.LoadScene("Level3");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
 		{
-			Game.current.levelThree = true;
+			currentGame.levelThree = true;
 			SceneManager.LoadScene("Level4");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 6) 
 		{
-			Game.current.levelFour = true;
+			currentGame.levelFour = true;
 			SceneManager.LoadScene("Level5");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 7) 
 		{
-			Game.current.levelFive = true;
+			currentGame.levelFive = true;
 			SceneManager.LoadScene("MainMenu");
 		}
 
