@@ -12,11 +12,11 @@ public class ClearedLevels : MonoBehaviour {
 		// Load saved game data
 		//SaveLoad.Load (); causing bug , will fix later
 		// Get cleared level values
-		lvl1 = current.levelOne;
-		lvl2 = current.levelTwo;
-		lvl3 = current.levelThree;
-		lvl4 = current.levelFour;
-		lvl5 = current.levelFive;
+		lvl1 = PlayerController.level1;
+		lvl2 = PlayerController.level2;
+		lvl3 = PlayerController.level3;
+		lvl4 = PlayerController.level4;
+		lvl5 = PlayerController.level5;
 		// Set button strings
 		button1 = "Play level 1.";
 		if (lvl1 == true) {

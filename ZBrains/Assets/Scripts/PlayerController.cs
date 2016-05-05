@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour {
 	public GUISkin buttonSkin;
 	public float speed;
 	public bool paused = false;
+	public static bool level1 = false;
+	public static bool level2 = false;
+	public static bool level3 = false;
+	public static bool level4 = false;
+	public static bool level5 = false;
 	public Sprite bloodPool;
 	static public int count;
 	public Text pauseText;
@@ -113,24 +118,29 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
+			level1 = true;
 			SceneManager.LoadScene("Level2");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
 		{
+			level2 = true;
 			SceneManager.LoadScene("Level3");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
 		{
+			level3 = true;
 			SceneManager.LoadScene("Level4");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 6) 
 		{
+			level4 = true;
 			SceneManager.LoadScene("Level5");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 7) 
 		{
+			level5 = true;
 			SceneManager.LoadScene("MainMenu");
 		}
 
