@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class ClearedLevels : MonoBehaviour {
 
 	public Texture background;
-	public Game current = SaveLoad.savedGame;
+	public Game current = PlayerController.savedGame;
 	public bool lvl1, lvl2, lvl3, lvl4, lvl5;
 	public string button1, button2, button3, button4, button5;
 	void OnGUI(){

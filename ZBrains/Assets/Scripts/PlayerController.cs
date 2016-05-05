@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
+	public GUISkin buttonSkin;
 	public float speed;
 	public bool paused = false;
 	public Sprite bloodPool;
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public Text pauseText;
 	public Text countText;
 	public Text timeText;
-	public Game current = Game.current;
+	public static Game savedGame = new Game();
 	private int starting_count;
 	static public int difficultyTimeVar=5;// default factor is 3*
 	private bool isPaused;
@@ -24,7 +25,6 @@ public class PlayerController : MonoBehaviour {
 	//--------------------------------------------
 	void Start()
 	{
-		
 		rb2d = GetComponent<Rigidbody2D> ();
 		rb2d.freezeRotation = true;
 		count = 0;
@@ -71,9 +71,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		// show pause button when isPaused is false
-		GUI.backgroundColor = Color.black;
+		GUI.skin = buttonSkin;
 		GUI.contentColor = Color.white;
+		// show pause button when isPaused is false
 		if (!isPaused) {
 			if (GUI.Button (new Rect (Screen.width * .87f, Screen.height * .01f, Screen.width * .1f, Screen.height * .1f), "||")) {
 				isPaused = true;
@@ -114,24 +114,29 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.CompareTag ("Door") && count == 6 && SceneManager.GetActiveScene().buildIndex == 3) 
 		{
+			savedGame.levelOne = true;
 			SceneManager.LoadScene("Level2");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 4) 
 		{
+			savedGame.levelTwo = true;
 			SceneManager.LoadScene("Level3");
 		}
 
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 5) 
 		{
+			savedGame.levelThree = true;
 			SceneManager.LoadScene("Level4");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 6) 
 		{
+			savedGame.levelFour = true;
 			SceneManager.LoadScene("Level5");
 		}
 		if (other.gameObject.CompareTag ("Door") && count == 10 && SceneManager.GetActiveScene().buildIndex == 7) 
 		{
+			savedGame.levelFive = true;
 			SceneManager.LoadScene("MainMenu");
 		}
 
