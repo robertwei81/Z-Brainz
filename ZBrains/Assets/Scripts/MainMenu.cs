@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour {
 
 	public Texture splashScreenBackground;
 	public Texture backgroundTexture; // public so you can drag background image on unity
-	public Game current = SaveLoad.savedGame;
+
 	void OnGUI(){
 		// display background texture
 		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), splashScreenBackground);
@@ -21,8 +21,7 @@ public class MainMenu : MonoBehaviour {
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), backgroundTexture);
 		}
 		// for testing purposes
-		current.levelOne = true;
-		current.levelFive = true;
+
 		if (Time.time > 2f) {
 			// Create "Start Game" button
 			if (GUI.Button (new Rect (Screen.width * .35f, Screen.height * .35f, Screen.width * .3f, Screen.height * .1f), "Start - Easy")) {
